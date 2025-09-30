@@ -167,11 +167,8 @@ export const WORDS: WordItem[] = [
   { word: "עגילים", difficulty: "easy", category: "חפצים" },
 
   // קטגוריה: מוסיקה נוספת - בינוני
-  { word: "תזמיר", difficulty: "medium", category: "מוזיקה" },
   { word: "דואט", difficulty: "medium", category: "מוזיקה" },
   { word: "טריו", difficulty: "medium", category: "מוזיקה" },
-  { word: "קוורטט", difficulty: "medium", category: "מוזיקה" },
-  { word: "קווינטט", difficulty: "medium", category: "מוזיקה" },
   { word: "סולו", difficulty: "medium", category: "מוזיקה" },
   { word: "מנצח", difficulty: "medium", category: "מוזיקה" },
   { word: "מלחין", difficulty: "medium", category: "מוזיקה" },
@@ -1185,8 +1182,7 @@ export const WORDS: WordItem[] = [
   { word: "חצוצרה", difficulty: "easy", category: "מוזיקה" },
   { word: "כינור", difficulty: "easy", category: "מוזיקה" },
   { word: "צ'לו", difficulty: "easy", category: "מוזיקה" },
-  { word: "קונטרבס", difficulty: "easy", category: "מוזיקה" },
-  { word: "הרמוניקה", difficulty: "easy", category: "מוזיקה" },
+  { word: "הרמוניה", difficulty: "easy", category: "מוזיקה" },
   { word: "שיר", difficulty: "easy", category: "מוזיקה" },
   { word: "מנגינה", difficulty: "easy", category: "מוזיקה" },
   { word: "קצב", difficulty: "easy", category: "מוזיקה" },
@@ -1962,7 +1958,6 @@ export const WORDS: WordItem[] = [
   // קטגוריה: כלי נגינה - בינוני
   { word: "סקסופון", difficulty: "medium", category: "כלי נגינה" },
   { word: "צ'לו", difficulty: "medium", category: "כלי נגינה" },
-  { word: "קונטרבס", difficulty: "medium", category: "כלי נגינה" },
   { word: "ויולה", difficulty: "medium", category: "כלי נגינה" },
   { word: "אקורדיון", difficulty: "medium", category: "כלי נגינה" },
   { word: "קלרינט", difficulty: "medium", category: "כלי נגינה" },
@@ -2031,7 +2026,6 @@ export const WORDS: WordItem[] = [
   { word: "קרמל", difficulty: "medium", category: "מתוקים" },
   { word: "מרשמלו", difficulty: "medium", category: "מתוקים" },
   { word: "טראפלס", difficulty: "medium", category: "מתוקים" },
-  { word: "פונדנט", difficulty: "medium", category: "מתוקים" },
   { word: "מקרון", difficulty: "medium", category: "מתוקים" },
   { word: "אקלר", difficulty: "medium", category: "מתוקים" },
   { word: "מוס", difficulty: "medium", category: "מתוקים" },
