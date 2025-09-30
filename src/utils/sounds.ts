@@ -3,15 +3,19 @@ class SoundManager {
   private sounds: Map<string, HTMLAudioElement> = new Map();
 
   constructor() {
-    // Pre-load sounds
-    this.loadSound("success", "/sounds/success.mp3");
-    this.loadSound("burn", "/sounds/burn.wav");
-    this.loadSound("buzzer", "/sounds/buzzer.wav");
+    // Pre-load sounds - use relative paths that work with Vite's base configuration
+    const basePath = import.meta.env.BASE_URL;
+    this.loadSound("success", `${basePath}sounds/success.mp3`);
+    this.loadSound("burn", `${basePath}sounds/burn.wav`);
+    this.loadSound("buzzer", `${basePath}sounds/buzzer.wav`);
   }
 
   private loadSound(name: string, path: string) {
     const audio = new Audio(path);
     audio.preload = "auto";
+    audio.addEventListener('error', (e) => {
+      console.error(`Failed to load sound: ${name} from ${path}`, e);
+    });
     this.sounds.set(name, audio);
   }
 
