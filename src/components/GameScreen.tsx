@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card } from './Card';
 import { HistoryDrawer } from './HistoryDrawer';
+import { soundManager } from '../utils/sounds';
 
 interface GameScreenProps {
   currentCardWords: string[];
@@ -25,6 +26,16 @@ export const GameScreen = ({
 }: GameScreenProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
+  const handleSuccess = () => {
+    soundManager.play('success');
+    onSuccess();
+  };
+
+  const handleBurn = () => {
+    soundManager.play('burn');
+    onBurn();
+  };
+
   const getTimerClass = () => {
     if (timeRemaining <= 10) return 'timer danger';
     if (timeRemaining <= 20) return 'timer warning';
@@ -48,10 +59,10 @@ export const GameScreen = ({
 
         {/* Action Buttons */}
         <div className="action-buttons">
-          <button onClick={onSuccess} className="action-btn success-btn">
+          <button onClick={handleSuccess} className="action-btn success-btn">
             הצלחה ✓
           </button>
-          <button onClick={onBurn} className="action-btn burn-btn">
+          <button onClick={handleBurn} className="action-btn burn-btn">
             שריפה ✗
           </button>
         </div>

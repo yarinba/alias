@@ -8,7 +8,7 @@ function App() {
   const { gameData, startRound, markSuccess, markBurn, resetToMenu } = useGameState();
 
   return (
-    <div className="app">
+    <div className={`app ${gameData.timeRemaining === 0 && gameData.currentState === 'playing' ? 'timer-ended' : ''}`}>
       {gameData.currentState === 'menu' && (
         <MenuScreen onStartRound={startRound} />
       )}

@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from "react";
 import { GameData } from "../types/game";
 import { WORDS, WordItem } from "../data/words";
+import { soundManager } from "../utils/sounds";
 
 const ROUND_TIME = 60;
 
@@ -39,6 +40,7 @@ export const useGameState = () => {
   });
 
   const timerRef = useRef<number | null>(null);
+  const buzzerPlayedRef = useRef<boolean>(false);
 
   // Timer effect
   useEffect(() => {
@@ -47,6 +49,11 @@ export const useGameState = () => {
         setGameData((prev) => {
           const newTime = prev.timeRemaining - 1;
           if (newTime === 0) {
+            // Play buzzer sound when timer reaches 0
+            if (!buzzerPlayedRef.current) {
+              soundManager.play("buzzer");
+              buzzerPlayedRef.current = true;
+            }
             return {
               ...prev,
               timeRemaining: 0,
@@ -68,6 +75,16 @@ export const useGameState = () => {
       }
     };
   }, [gameData.isTimerRunning, gameData.timeRemaining]);
+
+  // Reset buzzer flag when starting a new round
+  useEffect(() => {
+    if (
+      gameData.currentState === "playing" &&
+      gameData.timeRemaining === ROUND_TIME
+    ) {
+      buzzerPlayedRef.current = false;
+    }
+  }, [gameData.currentState, gameData.timeRemaining]);
 
   const loadNewCard = useCallback(
     (
